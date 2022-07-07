@@ -1,0 +1,12 @@
+GET localhost/api/user/1
+
+###
+POST localhost/api/signUp
+Content-Type: application/json
+
+{
+  "firstName": "MyName",
+  "lastName": "MyLastName",
+  "middleName": "MyMiddleName",
+  "password": "MyPassword"
+}
