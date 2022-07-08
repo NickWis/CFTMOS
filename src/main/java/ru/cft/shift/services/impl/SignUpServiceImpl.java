@@ -16,9 +16,9 @@ public class SignUpServiceImpl implements SignUpService {
 
     @Override
     public UserResponse signUp(SignUpForm signUpForm) {
-         if (((signUpForm.getFirstName()).length()<2)||
-                ((signUpForm.getLastName()).length()<2)||
-                ((signUpForm.getMiddleName()).length()<2)||
+         if (((signUpForm.getFirstName()).length()<2)||((signUpForm.getFirstName()).matches(".*\\d+.*"))||
+                ((signUpForm.getLastName()).length()<2)||((signUpForm.getLastName()).matches(".*\\d+.*"))||
+                ((signUpForm.getMiddleName()).length()<2)||((signUpForm.getMiddleName()).matches(".*\\d+.*"))||
                 ((signUpForm.getPassword()).length()<6)) {
             throw new IllegalArgumentException();
         }
