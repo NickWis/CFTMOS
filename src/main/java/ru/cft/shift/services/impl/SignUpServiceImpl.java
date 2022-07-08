@@ -16,6 +16,12 @@ public class SignUpServiceImpl implements SignUpService {
 
     @Override
     public UserResponse signUp(SignUpForm signUpForm) {
+         if (((signUpForm.getFirstName()).length()<2)||
+                ((signUpForm.getLastName()).length()<2)||
+                ((signUpForm.getMiddleName()).length()<2)||
+                ((signUpForm.getPassword()).length()<6)) {
+            throw new IllegalArgumentException();
+        }
         User user = User.builder()
                 .firstName(signUpForm.getFirstName())
                 .lastName(signUpForm.getLastName())
