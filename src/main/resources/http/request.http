@@ -1,4 +1,5 @@
 GET localhost/api/user/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1IiwibGFzdCBuYW1lIjoiQURNSU5PViIsInJvbGUiOiJBRE1JTiIsImZpcnN0IG5hbWUiOiJBRE1JTiJ9.LTIz5VFGsUaF3yjXj0BvBV8vBgeXIq_4OFO7Cz4mQh4
 
 ###
 POST localhost/api/signUp
@@ -10,3 +11,33 @@ Content-Type: application/json
   "middleName": "MyMiddleName",
   "password": "MyPassword"
 }
+
+###
+POST localhost/api/signUp
+Content-Type: application/json
+
+{
+  "firstName": "ADMIN",
+  "lastName": "ADMINOV",
+  "middleName": "MyMiddleName",
+  "password": "qwerty007"
+}
+
+### AS ADMIN
+POST  localhost/api/login
+Content-Type: application/json
+
+{
+  "lastName": "ADMINOV",
+  "password": "qwerty007"
+}
+
+### AS USER
+POST  localhost/api/login
+Content-Type: application/json
+
+{
+  "lastName": "MyLastName",
+  "password": "MyPassword"
+}
+
