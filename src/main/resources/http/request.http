@@ -10,3 +10,6 @@ Content-Type: application/json
   "middleName": "MyMiddleName",
   "password": "MyPassword"
 }
+
+###
+GET localhost/api/user/all
