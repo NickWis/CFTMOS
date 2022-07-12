@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.cft.shift.model.User;
 import ru.cft.shift.model.dto.SignUpForm;
-import ru.cft.shift.model.dto.UserResponse;
+import ru.cft.shift.model.dto.UserDto;
 import ru.cft.shift.repositories.UserRepository;
 import ru.cft.shift.services.SignUpService;
 
@@ -15,7 +15,7 @@ public class SignUpServiceImpl implements SignUpService {
     private final UserRepository userRepository;
 
     @Override
-    public UserResponse signUp(SignUpForm signUpForm) {
+    public UserDto signUp(SignUpForm signUpForm) {
          if (((signUpForm.getFirstName()).length()<2)||((signUpForm.getFirstName()).matches(".*\\d+.*"))||
                 ((signUpForm.getLastName()).length()<2)||((signUpForm.getLastName()).matches(".*\\d+.*"))||
                 ((signUpForm.getMiddleName()).length()<2)||((signUpForm.getMiddleName()).matches(".*\\d+.*"))||
@@ -31,13 +31,13 @@ public class SignUpServiceImpl implements SignUpService {
 
         userRepository.save(user);
 
-        UserResponse userResponse = UserResponse.builder()
+        UserDto userDto = UserDto.builder()
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .middleName(user.getMiddleName())
                 .build();
 
-        return userResponse;
+        return userDto;
 
     }
 }
