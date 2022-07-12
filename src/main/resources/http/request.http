@@ -13,3 +13,17 @@ Content-Type: application/json
 
 ###
 GET localhost/api/user/all
+
+###
+POST localhost/api/services
+Content-Type: application/json
+
+{
+  "description": "Fix bikes",
+  "date": "2022-07-12T19:58:01.000+00:00",
+  "city": "Kazan",
+  "userId": "4"
+}
+
+###
+GET localhost/api/services/1
