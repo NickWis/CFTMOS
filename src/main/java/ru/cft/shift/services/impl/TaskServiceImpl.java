@@ -45,16 +45,16 @@ public class TaskServiceImpl implements TaskService {
         return from(services);
     }
     
-    //New
     @Override
-    public ClientService UpdateService(ClientServiceDto clientServiceDto, Long serviceId) {
-        ClientService depDB=clientServiceRepository.findById(serviceId).get();
+    public ClientServiceDto updateService(ClientServiceDto clientServiceDto, Long serviceId) {
+        ClientService depDB=clientServiceRepository.findById(serviceId).orElseThrow(() -> new IllegalArgumentException("Can't find service"));
         depDB.setDescription(clientServiceDto.getDescription());
         depDB.setDate(clientServiceDto.getDate());
         depDB.setCity(clientServiceDto.getCity());
-        return clientServiceRepository.save(depDB);
+        clientServiceRepository.save(depDB);
+        return from(depDB);
     }
-//New
+
     @Override
     public void deleteById(Long serviceId) {
         clientServiceRepository.deleteById(serviceId);

@@ -35,9 +35,10 @@ public class ClientServiceController {
         return "Deleted Successfully";
     }
     //New
-    @PutMapping("/update")
-    public ClientService UpdateService(@RequestBody ClientServiceDto clientServiceDto, @PathVariable Long serviceId) {
-        return taskService.UpdateService(clientServiceDto, serviceId);
+    @PutMapping("/update/{service-id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public ClientServiceDto updateService(@RequestBody ClientServiceDto clientServiceDto, @PathVariable("service-id") Long serviceId) {
+        return taskService.updateService(clientServiceDto, serviceId);
     }
 
     @PostMapping()

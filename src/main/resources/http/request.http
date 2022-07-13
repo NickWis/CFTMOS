@@ -30,3 +30,16 @@ GET localhost/api/services/1
 
 ###
 GET localhost/api/services/user/4
+
+###
+PUT localhost/api/services/update/3
+Content-Type: application/json
+
+{
+  "description": "Read books for you",
+  "date": "2022-04-05T19:58:01.000+00:00",
+  "city": "Novosibirsk"
+}
+
+###
+DELETE localhost/api/services/delete/5

@@ -12,7 +12,7 @@ public interface TaskService {
     List<ClientServiceDto> getServicesByUser(Long userId);
     
     //New
-    ClientService UpdateService(ClientServiceDto clientServiceDto, Long serviceId);
+    ClientServiceDto updateService(ClientServiceDto clientServiceDto, Long serviceId);
      //New
      void deleteById(Long serviceId);
 }
