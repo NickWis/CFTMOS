@@ -10,4 +10,9 @@ public interface TaskService {
     ClientServiceDto addClientService(ClientServiceDto clientServiceDto);
 
     List<ClientServiceDto> getServicesByUser(Long userId);
+    
+    //New
+    ClientService UpdateService(ClientServiceDto clientServiceDto, Long serviceId);
+     //New
+     void deleteById(Long serviceId);
 }
