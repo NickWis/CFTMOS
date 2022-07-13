@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.cft.shift.model.ClientService;
 import ru.cft.shift.model.dto.ClientServiceDto;
 import ru.cft.shift.model.dto.ClientServiceResponse;
 import ru.cft.shift.services.TaskService;
@@ -25,6 +26,18 @@ public class ClientServiceController {
         return ResponseEntity.ok().body(ClientServiceResponse.builder()
                 .data(taskService.getServicesByUser(userId))
                 .build());
+    }
+    
+     //New
+    @DeleteMapping("/delete/{service-id}")
+    public String deleteById(@PathVariable("service-id") Long serviceId){
+        taskService.deleteById(serviceId);
+        return "Deleted Successfully";
+    }
+    //New
+    @PutMapping("/update")
+    public ClientService UpdateService(@RequestBody ClientServiceDto clientServiceDto, @PathVariable Long serviceId) {
+        return taskService.UpdateService(clientServiceDto, serviceId);
     }
 
     @PostMapping()
