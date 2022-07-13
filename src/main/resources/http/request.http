@@ -43,3 +43,14 @@ Content-Type: application/json
 
 ###
 DELETE localhost/api/services/delete/5
+
+###
+POST localhost/api/orders/service/1
+Content-Type: application/json
+
+{
+  "userId": "4"
+}
+
+###
+GET localhost/api/orders/1

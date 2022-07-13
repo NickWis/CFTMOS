@@ -31,4 +31,8 @@ public class User {
     @OneToMany(mappedBy = "client")
     @ToString.Exclude
     private List<ClientService> clientServices;
+
+    @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    private List<Order> orders;
 }
