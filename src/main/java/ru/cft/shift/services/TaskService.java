@@ -1,5 +1,5 @@
 package ru.cft.shift.services;
-
+import ru.cft.shift.model.ClientService;
 import ru.cft.shift.model.dto.ClientServiceDto;
 
 import java.util.List;
