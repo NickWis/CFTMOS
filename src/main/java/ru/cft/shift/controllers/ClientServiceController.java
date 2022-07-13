@@ -20,6 +20,13 @@ public class ClientServiceController {
         return ResponseEntity.ok().body(taskService.getClientServiceById(serviceId));
     }
 
+    @GetMapping("/user/{user-id}")
+    public ResponseEntity<ClientServiceResponse> getServicesByUser(@PathVariable("user-id") Long userId){
+        return ResponseEntity.ok().body(ClientServiceResponse.builder()
+                .data(taskService.getServicesByUser(userId))
+                .build());
+    }
+
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public ClientServiceDto addClientService(@RequestBody ClientServiceDto clientServiceDto){

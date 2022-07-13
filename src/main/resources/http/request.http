@@ -20,10 +20,13 @@ Content-Type: application/json
 
 {
   "description": "Fix bikes",
-  "date": "2022-07-12T19:58:01.000+00:00",
-  "city": "Kazan",
-  "userId": "4"
+  "date": "2022-05-10T19:58:01.000+00:00",
+  "city": "Tomsk",
+  "userId": "5"
 }
 
 ###
 GET localhost/api/services/1
+
+###
+GET localhost/api/services/user/4
