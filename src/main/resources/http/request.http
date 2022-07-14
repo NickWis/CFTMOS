@@ -1,4 +1,4 @@
-GET localhost/api/user/1
+GET localhost/api/user/6
 
 ###
 POST localhost/api/signUp

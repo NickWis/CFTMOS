@@ -1,5 +1,6 @@
 package ru.cft.shift.model.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,12 +15,18 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @Builder
 public class UserDto {
+
+    private Long id;
+    @Schema(description = "Имя", example = "Anton")
     private String firstName;
+    @Schema(description = "Фамилия", example = "Chehov")
     private String lastName;
+    @Schema(description = "Отчество", example = "Pavlovich")
     private String middleName;
 
     public static UserDto from(User user){
         return UserDto.builder()
+                .id(user.getId())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .middleName(user.getMiddleName())

@@ -1,5 +1,6 @@
 package ru.cft.shift.model.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 public class OrderDto {
 
     private Long id;
+    @Schema(description = "ID пользователя", example = "1")
     private Long userId;
 
     public static OrderDto from(Order order){

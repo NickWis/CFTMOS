@@ -17,8 +17,9 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     @Override
-    public User getUserById(Long userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Пользователя с таким айди не существует"));
+    public UserDto getUserById(Long userId) {
+        User user = userRepository.findById(userId).orElseThrow(() -> new IllegalArgumentException("Пользователя с таким айди не существует"));
+        return from(user);
     }
 
     @Override
