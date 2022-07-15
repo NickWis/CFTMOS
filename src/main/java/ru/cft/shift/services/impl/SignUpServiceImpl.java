@@ -1,6 +1,7 @@
 package ru.cft.shift.services.impl;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.cft.shift.model.User;
 import ru.cft.shift.model.dto.SignUpForm;
@@ -13,6 +14,7 @@ import ru.cft.shift.services.SignUpService;
 public class SignUpServiceImpl implements SignUpService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     public UserDto signUp(SignUpForm signUpForm) {
@@ -26,7 +28,7 @@ public class SignUpServiceImpl implements SignUpService {
                 .firstName(signUpForm.getFirstName())
                 .lastName(signUpForm.getLastName())
                 .middleName(signUpForm.getMiddleName())
-                .password(signUpForm.getPassword())
+                .password(passwordEncoder.encode(signUpForm.getPassword()))
                 .build();
 
         userRepository.save(user);
