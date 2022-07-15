@@ -1,6 +1,10 @@
 GET localhost/api/user/6
 
 ###
+GET localhost/api/user/all
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0IiwibGFzdCBuYW1lIjoiTXlMYXN0TmFtZSIsInJvbGUiOiJVU0VSIiwiZmlyc3QgbmFtZSI6Ik15TmFtZSJ9.nV9sCrbdCYVC014NI2gnU_Tl95SWWwsmHhDhiDhA6zQ
+
+###
 POST localhost/api/signUp
 Content-Type: application/json
 
@@ -8,6 +12,24 @@ Content-Type: application/json
   "firstName": "MyName",
   "lastName": "MyLastName",
   "middleName": "MyMiddleName",
+  "password": "MyPassword"
+}
+
+### LOGIN AS ADMIN
+POST  localhost/api/login
+Content-Type: application/json
+
+{
+  "lastName": "ADMINOV",
+  "password": "qwerty007"
+}
+
+### LOGIN AS USER
+POST  localhost/api/login
+Content-Type: application/json
+
+{
+  "lastName": "MyLastName",
   "password": "MyPassword"
 }
 

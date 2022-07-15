@@ -42,4 +42,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     @ToString.Exclude
     private List<Order> orders;
+
+    private String token;
 }
