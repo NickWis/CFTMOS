@@ -1,5 +1,4 @@
-GET localhost/api/user/1
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1IiwibGFzdCBuYW1lIjoiQURNSU5PViIsInJvbGUiOiJBRE1JTiIsImZpcnN0IG5hbWUiOiJBRE1JTiJ9.LTIz5VFGsUaF3yjXj0BvBV8vBgeXIq_4OFO7Cz4mQh4
+GET localhost/api/user/6
 
 ###
 POST localhost/api/signUp
@@ -13,31 +12,45 @@ Content-Type: application/json
 }
 
 ###
-POST localhost/api/signUp
+GET localhost/api/user/all
+
+###
+POST localhost/api/services
 Content-Type: application/json
 
 {
-  "firstName": "ADMIN",
-  "lastName": "ADMINOV",
-  "middleName": "MyMiddleName",
-  "password": "qwerty007"
+  "description": "Fix bikes",
+  "date": "2022-05-10T19:58:01.000+00:00",
+  "city": "Tomsk",
+  "userId": "5"
 }
 
-### AS ADMIN
-POST  localhost/api/login
+###
+GET localhost/api/services/1
+
+###
+GET localhost/api/services/user/4
+
+###
+PUT localhost/api/services/update/3
 Content-Type: application/json
 
 {
-  "lastName": "ADMINOV",
-  "password": "qwerty007"
+  "description": "Read books for you",
+  "date": "2022-04-05T19:58:01.000+00:00",
+  "city": "Novosibirsk"
 }
 
-### AS USER
-POST  localhost/api/login
+###
+DELETE localhost/api/services/delete/5
+
+###
+POST localhost/api/orders/service/1
 Content-Type: application/json
 
 {
-  "lastName": "MyLastName",
-  "password": "MyPassword"
+  "userId": "4"
 }
 
+###
+GET localhost/api/orders/1

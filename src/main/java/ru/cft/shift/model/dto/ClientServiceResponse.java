@@ -11,6 +11,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserResponse {
-    private List<UserDto> data;
+public class ClientServiceResponse {
+    private List<ClientServiceDto> data;
 }

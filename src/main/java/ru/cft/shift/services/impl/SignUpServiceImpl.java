@@ -5,7 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.cft.shift.model.User;
 import ru.cft.shift.model.dto.SignUpForm;
-import ru.cft.shift.model.dto.UserResponse;
+import ru.cft.shift.model.dto.UserDto;
 import ru.cft.shift.repositories.UserRepository;
 import ru.cft.shift.services.SignUpService;
 
@@ -17,7 +17,7 @@ public class SignUpServiceImpl implements SignUpService {
     private final PasswordEncoder passwordEncoder;
 
     @Override
-    public UserResponse signUp(SignUpForm signUpForm) {
+    public UserDto signUp(SignUpForm signUpForm) {
         User user = User.builder()
                 .firstName(signUpForm.getFirstName())
                 .lastName(signUpForm.getLastName())
@@ -27,13 +27,13 @@ public class SignUpServiceImpl implements SignUpService {
 
         userRepository.save(user);
 
-        UserResponse userResponse = UserResponse.builder()
+        UserDto userDto = UserDto.builder()
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .middleName(user.getMiddleName())
                 .build();
 
-        return userResponse;
+        return userDto;
 
     }
 }
