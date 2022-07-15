@@ -34,6 +34,7 @@ public class SignUpServiceImpl implements SignUpService {
         userRepository.save(user);
 
         UserDto userDto = UserDto.builder()
+                .id(user.getId())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
                 .middleName(user.getMiddleName())
