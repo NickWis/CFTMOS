@@ -12,10 +12,17 @@ import java.util.List;
 @Entity(name = "users")
 public class User {
 
+    public enum Role{
+        USER, ADMIN
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
+
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
     @Column(name = "first_name")
     private String firstName;
